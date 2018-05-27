@@ -2,7 +2,10 @@ package com.example.android.newsapp;
 
 import android.annotation.TargetApi;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.sip.SipSession;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.ListPreference;
@@ -12,6 +15,9 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.DatePicker;
+import android.widget.Toast;
+
+import java.net.InterfaceAddress;
 import java.util.Calendar;
 
 public class SettingsActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
@@ -33,15 +39,24 @@ public class SettingsActivity extends AppCompatActivity implements DatePickerDia
 
             Preference minDate = findPreference(getString(R.string.settings_min_date_key));
             minDate.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                private DatePickerDialog.OnDateSetListener dateSetListener =
+                        new DatePickerDialog.OnDateSetListener() {
+                            public void onDateSet(DatePicker view, int year, int month, int day) {
+                                Toast.makeText(getActivity(), "selected date is " + view.getYear() +
+                                        " / " + (view.getMonth()+1) +
+                                        " / " + view.getDayOfMonth(), Toast.LENGTH_SHORT).show();
+                            }
+                        };
+
                 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
-                    showDateDialog();
+                    showDateDialog(getContext(), dateSetListener);
                     return false;
                 }
             });
 
-            Preference maxDate = findPreference(getString(R.string.settings_max_date_key));
+           /* Preference maxDate = findPreference(getString(R.string.settings_max_date_key));
             maxDate.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
                 @Override
@@ -49,7 +64,7 @@ public class SettingsActivity extends AppCompatActivity implements DatePickerDia
                     showDateDialog();
                     return false;
                 }
-            });
+            });*/
 
         }
         @Override
@@ -83,14 +98,15 @@ public class SettingsActivity extends AppCompatActivity implements DatePickerDia
         Log.i("dasd","year "+i+" month "+i2+" day "+i3);
     }
 
-    private static void showDateDialog(){
+    private static void showDateDialog(Context context, DatePickerDialog.OnDateSetListener listener ){
         // Use the current date as the default date in the picker
         final Calendar c = Calendar.getInstance();
         int year = c.get(Calendar.YEAR);
         int month = c.get(Calendar.MONTH);
         int day = c.get(Calendar.DAY_OF_MONTH);
-        new DatePickerDialog(this,this, year, month, day).show();
 
+        new DatePickerDialog(context,listener, year, month, day).show();
     }
+
 }
 
