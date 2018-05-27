@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">News App</string>
+    <string name="title_text">Aractic Monkeys New CD release</string>
+    <string name="author_text">Hila Iarchy, Mark Robin, Ilay Cohen</string>
+    <string name="section_text">Travel</string>
+    <string name="tag_text">Art</string>
+    <string name="date_text">02-10-1991</string>
+    <string name="time_text">12:00</string>
+    <string name="no_internet_connection">No Internet Connection</string>
+    <string name="no_news_items">No News Items</string>
+    <string name="no_time">24:00</string>
+    <string name="separator">T</string>
+
+    /*For Setting Button*/
+    <string name="settings_menu_item">Settings</string>
+    <string name="settings_title">News Settings</string>
+
+    <!-- Strings For Order-By Preference [CHAR LIMIT=30] -->
+    <string name="settings_order_by_label">Order By</string>
+    <string name="settings_order_by_key" translatable="false">order_by</string>
+    <string name="settings_order_by_default" translatable="false">@string/settings_order_by_most_recent_value</string>
+
+    <!-- Label for order-by most recent option [CHAR LIMIT=20] -->
+    <string name="settings_order_by_most_recent_label">Most Recent</string>
+    <string name="settings_order_by_most_recent_value" translatable="false">newest</string>
+
+    <!-- Label for order-by least recent option [CHAR LIMIT=20] -->
+    <string name="settings_order_by_least_recent_label">Least Recent</string>
+    <string name="settings_order_by_least_recent_value" translatable="false">oldest</string>
+
+    //Date modification
+    <string name="date_picker">Date Picker</string>
+    <string name="settings_min_date_label">Minimum Date</string>
+    <string name="settings_min_date_key" translatable="false">min_date</string>
+    <string name="settings_min_date_default" translatable="false">@string/settings_order_by_least_recent_value</string>
+
+    <string name="settings_max_date_label">Maximum Date</string>
+    <string name="settings_max_date_key" translatable="false">max_date</string>
+    <string name="settings_max_date_default" translatable="false">@string/settings_order_by_most_recent_value</string>
+
+</resources>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/list_height"
+    android:orientation="horizontal"
+    android:layout_gravity="center"
+    android:background="@color/colorAccent">
+
+    <LinearLayout
+        android:id="@+id/section_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_size"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/section_text"
+            android:textStyle="bold"
+            android:gravity="start"
+            style="@style/TextViewUpperTheme"/>
+
+        <TextView
+            android:id="@+id/tag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tag_text"
+            android:ellipsize="start"
+            style="@style/TextViewLowerTheme"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/title_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_size"
+        android:layout_toRightOf="@+id/section_tag">
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_text"
+            android:fontFamily="sans-serif-medium"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:layout_gravity="start"
+            style="@style/TextViewUpperTheme"/>
+
+        <TextView
+            android:id="@+id/author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/author_text"
+            android:fontFamily="sans-serif-medium"
+            android:inputType="textCapWords"
+            android:layout_gravity="start"
+            style="@style/TextViewLowerTheme"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/date_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_size"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignBottom="@+id/section_tag">
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/date_text"
+            android:layout_gravity="end"
+            style="@style/TextViewUpperTheme"/>
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/time_text"
+            android:paddingLeft="@dimen/padding_extra_size"
+            android:paddingStart="@dimen/padding_extra_size"
+            style="@style/TextViewLowerTheme"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
